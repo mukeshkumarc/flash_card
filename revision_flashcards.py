@@ -69,6 +69,10 @@ st.markdown(
         white-space: pre-wrap;
         font-size: 1rem;
     }
+    /* remove Streamlit's default top padding */
+    div.block-container {
+        padding-top: 1rem;
+    }
     /* keep Previous / Next in one row on phones */
     div[data-testid="stHorizontalBlock"] {
         flex-wrap: nowrap !important;
@@ -139,7 +143,6 @@ order = build_order(total, st.session_state.shuffle, url_int("seed", 0))
 index = min(max(url_int("card", 1), 1), total) - 1
 card = cards[order[index]]
 
-st.title("July 2026 Revision Cards")
 st.toggle(
     "Random order",
     key="shuffle",
@@ -190,3 +193,5 @@ with next_col:
         key="next",
         use_container_width=True,
     )
+
+st.title("July 2026 Revision Cards")
